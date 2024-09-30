@@ -72,6 +72,9 @@ func setBlockAttrs(c *gin.Context) {
 		}
 	}
 
+	// 所有笔记都不记录滚动位置
+	attrs["scroll"] = nil
+
 	nameValues := map[string]string{}
 	for name, value := range attrs {
 		if nil == value { // API `setBlockAttrs` 中如果存在属性值设置为 `null` 时移除该属性 https://github.com/siyuan-note/siyuan/issues/5577
